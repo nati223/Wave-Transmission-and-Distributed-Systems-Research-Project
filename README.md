@@ -7,4 +7,5 @@ a problem that can't be solved analytically.
 In this repository you will find:
 1. Research project instructions.
 2. Our research document, and conclusions.
-3. Two python files, one for each section of the problem.
+3. Two python files, the second one handles question 2 sections c and d, as they were part of a competition of achieving the widest
+bandwidth possible where the line is matched.
