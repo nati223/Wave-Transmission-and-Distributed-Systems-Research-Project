@@ -40,7 +40,6 @@ def calculate_gamma(L1,C1,alpha1,alpha2,w):
     for i in range((N//2)+2,N):
         M[i,i-2] = -1/(2*delta)
         M[i,i] = 1/(2*delta)
-        #M[i,N+i-1] = (w*(L1 + alpha1*((i*delta - l/2)**2)))*1j
         M[i,N+i-1] = (w*(L1 + alpha1*((k*delta)**2)))*1j
         k+=1
         
@@ -72,7 +71,6 @@ def calculate_gamma(L1,C1,alpha1,alpha2,w):
     for i in range(3*(N//2) + 2, 2*N):
         M[i,i-2] = -1/(2*delta)
         M[i,i] = 1/(2*delta)
-        #M[i,i-N-1] = (w*(C1 + alpha2*((l/2 - (i-N-1)*delta)**2)))*1j
         M[i,i-N-1] = (w*(C1 + alpha2*((k*delta)**2)))*1j
         k+=1
     
@@ -104,8 +102,6 @@ ZL = 150
 Gamma_G = ((RG-Z0)/(RG+Z0))
 Gamma_L = ((ZL-Z0)/(ZL+Z0))
 epsilon = 0.0001
-#C_match = (0.2*10**10*75*np.sqrt(2))**-1
-#L_match = ((75*np.sqrt(2))**2)*C_match
 L_match = 5.3033*(10**-8)
 C_match = 4.714*(10**-12)
 f_range = np.linspace(5*10**9,15*10**9,F)
@@ -144,9 +140,6 @@ win_v = np.zeros(F)
 
 for k in range(F):
     win_v[k] = calculate_gamma(0.976*L_match,1.55*C_match,754*L_match,135*C_match,w_range[k])
-    #win_v[k] = calculate_gamma(0.91*L_match,1.25*C_match,571*L_match,165*C_match,w_range[k]) # yields 4.67
-    #win_v[k] = calculate_gamma(0.91*L_match,1.23*C_match,500*L_match,145*C_match,w_range[k]) - yields 4.47
-    #win_v[k] = calculate_gamma(0.845*L_match,0.89*C_match,184*L_match,200*C_match,w_range[k])
 
 set_low = 0
 set_high = 0
@@ -184,9 +177,6 @@ win_v_2 = np.zeros(F)
 
 for k in range(F):
     win_v_2[k] = calculate_gamma(0.976*L_match,1.55*C_match,754*L_match,135*C_match,w_range[k])
-    #win_v[k] = calculate_gamma(0.91*L_match,1.25*C_match,571*L_match,165*C_match,w_range[k]) # yields 4.67
-    #win_v[k] = calculate_gamma(0.91*L_match,1.23*C_match,500*L_match,145*C_match,w_range[k]) - yields 4.47
-    #win_v[k] = calculate_gamma(0.845*L_match,0.89*C_match,184*L_match,200*C_match,w_range[k])
 
 set_low = 0
 set_high = 0
